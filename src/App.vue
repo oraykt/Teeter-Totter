@@ -1,15 +1,19 @@
 <template>
   <div id="app">
+    <Header/>
     Hello World!
     <!-- <img src="./assets/logo.png"> -->
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header'
 
 export default {
   name: 'App',
-  components: {}
+  components: {
+    Header
+  }
 }
 </script>
 
@@ -19,6 +23,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
 }
 </style>
