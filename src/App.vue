@@ -94,7 +94,7 @@ export default {
     },
     checkDownLimit (e, val) {
       e.stopPropagation()
-      if (val <= 0) return val
+      if (val <= 1) return val
       return (val -= 1)
     },
     checkUpLimit (e, val) {

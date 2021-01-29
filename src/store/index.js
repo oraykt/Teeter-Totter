@@ -6,16 +6,16 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     rectangle: {
-      weight: 0,
-      position: 0
+      weight: 5,
+      position: 2
     },
     circle: {
-      weight: 0,
-      position: 0
+      weight: 3,
+      position: 1
     },
     triangle: {
-      weight: 0,
-      position: 0
+      weight: 2,
+      position: 2
     },
     leftSide: 0,
     rightSide: 0,
@@ -30,6 +30,8 @@ export const store = new Vuex.Store({
       return parseInt(state.rectangle.weight * state.rectangle.position)
     }
   },
-  actions: {},
-  mutations: {}
+  actions: {
+  },
+  mutations: {
+  }
 })
