@@ -1,71 +1,27 @@
 <template>
   <div class="container">
     <div class="inputs">
-      <div class="circle-input">
-        <p>Circle</p>
-        <label for>
-          Weight :
-          <input
-            type="number"
-            v-model="circle.weight"
-            @change="()=>{
-              if(circle.weight>10 ) {
-                  circle.weight = parseInt(circle.weight) - 1;
-                }
-              else if(circle.weight<1 ) {
-                circle.weight = parseInt(circle.weight) + 1;
-              }
-            }"
-          />
-        </label>
-        <label for>
-          position(arrow keys) :
-          <input
-            type="text"
-            v-model="circle.position"
-            v-on:keyup.37="(e)=>{ circle.position =  checkDownLimit(e,circle.position);}"
-            v-on:keyup.38="(e)=>{ circle.position =  checkUpLimit(e,circle.position);}"
-            v-on:keyup.39="(e)=>{ circle.position =  checkUpLimit(e,circle.position);}"
-            v-on:keyup.40="(e)=>{ circle.position =  checkDownLimit(e,circle.position);}"
-          />
-        </label>
-      </div>
-      <div class="triangle-input">
-        <p>triangle</p>
-        <label for>
-          Weight :
-          <input type="number" v-model="triangle.weight" />
-        </label>
-        <label for>
-          position(arrow keys) :
-          <input
-            type="text"
-            v-model="triangle.position"
-            v-on:keyup.37="(e)=>{ triangle.position =  checkDownLimit(e,triangle.position);}"
-            v-on:keyup.38="(e)=>{ triangle.position =  checkUpLimit(e,triangle.position);}"
-            v-on:keyup.39="(e)=>{ triangle.position =  checkUpLimit(e,triangle.position);}"
-            v-on:keyup.40="(e)=>{ triangle.position =  checkDownLimit(e,triangle.position);}"
-          />
-        </label>
-      </div>
-      <div class="rectangle-input">
-        <p>rectangle</p>
-        <label for>
-          Weight :
-          <input type="number" v-model="rectangle.weight" />
-        </label>
-        <label for>
-          position(arrow keys) :
-          <input
-            type="text"
-            v-model="rectangle.position"
-            v-on:keyup.37="(e)=>{ rectangle.position =  checkDownLimit(e,rectangle.position);}"
-            v-on:keyup.38="(e)=>{ rectangle.position =  checkUpLimit(e,rectangle.position);}"
-            v-on:keyup.39="(e)=>{ rectangle.position =  checkUpLimit(e,rectangle.position);}"
-            v-on:keyup.40="(e)=>{ rectangle.position =  checkDownLimit(e,rectangle.position);}"
-          />
-        </label>
-      </div>
+      <app-input
+        v-bind:inputName="'circle'"
+        v-bind:shape= this.circle
+        v-bind:checkUpLimit= this.checkUpLimit
+        v-bind:checkDownLimit= this.checkDownLimit
+      > </app-input>
+
+      <app-input
+        v-bind:inputName="'triangle'"
+        v-bind:shape= this.triangle
+        v-bind:checkUpLimit= this.checkUpLimit
+        v-bind:checkDownLimit= this.checkDownLimit
+      > </app-input>
+
+      <app-input
+        v-bind:inputName="'rectangle'"
+        v-bind:shape= this.rectangle
+        v-bind:checkUpLimit= this.checkUpLimit
+        v-bind:checkDownLimit= this.checkDownLimit
+      > </app-input>
+
     </div>
     <div class="shape-container">
       <app-triangle></app-triangle>
@@ -99,6 +55,7 @@
 import Triangle from './components/triangle'
 import Circle from './components/circle'
 import Rectangle from './components/rectangle'
+import Input from './components/Input'
 import { mapState, mapGetters } from 'vuex'
 
 export default {
@@ -149,7 +106,8 @@ export default {
   components: {
     appTriangle: Triangle,
     appRectangle: Rectangle,
-    appCircle: Circle
+    appCircle: Circle,
+    appInput: Input
   }
 }
 </script>
