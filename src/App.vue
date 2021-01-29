@@ -123,6 +123,7 @@ export default {
 }
 .inputs {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 100px;
 }
@@ -152,4 +153,5 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
 </style>
